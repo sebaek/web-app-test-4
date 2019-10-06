@@ -1,4 +1,4 @@
-package com.controller;
+package com.member.controller;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ import com.service.UserService;
 /**
  * Servlet implementation class SignUpController
  */
-@WebServlet("/signup")
+@WebServlet("/member/signup")
 public class SignUpController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -42,9 +42,9 @@ public class SignUpController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		UserService service = new UserService();
 		User user = service.addUser(request.getParameterMap());
-		request.setAttribute("user", user);
-		RequestDispatcher view = request.getRequestDispatcher("/login");
-		view.forward(request, response);
+//		request.setAttribute("user", user);
+//		RequestDispatcher view = request.getRequestDispatcher("/login");
+//		view.forward(request, response);
 	}
 
 }

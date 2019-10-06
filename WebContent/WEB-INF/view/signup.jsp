@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="<c:url value="/signup" />" method="post">
+<form action="<c:url value="/member/signup" />" method="post">
 <input type='text' name="name" />
 <input type="password" name="password" />
 <input type="submit" />

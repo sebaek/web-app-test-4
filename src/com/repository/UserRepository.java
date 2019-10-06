@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 
 import com.bean.User;
@@ -30,6 +31,11 @@ public class UserRepository {
 			ps.setString(2, user.getPassword());
 			ps.executeUpdate();
 			rs = ps.getGeneratedKeys();
+			ResultSetMetaData meta = rs.getMetaData();
+			int colCount = meta.getColumnCount();
+			for (int i = 0; i < colCount; i++) {
+				System.out.println(meta.getColumnName(i+1));
+			}
 			if (rs.next()) {
 				key = rs.getInt(1);
 			} else {
